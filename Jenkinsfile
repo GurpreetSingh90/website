@@ -29,8 +29,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.image('gurpreet5803/docker-demo').withRun('-p 82:82') {
-            /* do things */
-        }
+         
+        sh "docker run -itd gurpreet5803/docker-demo:latest -p 82:82"
     }
 }
