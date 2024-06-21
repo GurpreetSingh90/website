@@ -1,6 +1,10 @@
 node {
     def app
-
+    stage('Clean Workspace') {
+        steps {
+            cleanWs()
+        }
+    }
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
