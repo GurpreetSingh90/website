@@ -31,7 +31,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        sh "docker run -itd -p 5000:80 gurpreet5803/docker-demo:latest"
+        sh "docker run -itd -p 3000:80 gurpreet5803/docker-demo:latest"
     }
 
 }
