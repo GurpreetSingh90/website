@@ -20,6 +20,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'Docker') {
+            app.push("${env.BUILD_ID}")
             app.push("latest")
         }
     }
@@ -30,5 +31,6 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         sh "docker run -itd -p 82:80 gurpreet5803/docker-demo:latest"
+        sh "docker run -itd -p 82:80 gurpreet5803/docker-demo:${env.BUILD_ID}"
     }
 }
