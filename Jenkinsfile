@@ -10,24 +10,15 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("gurpreet5803/docker-demo")
+        app = docker.build("gurpreet5803/docker-demo:${env.BUILD_ID}")
     }
 
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'Docker') {
-            app.push("latest")
-        }
-    }
     stage('Publish image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        sh "docker run -itd -p 82:80 gurpreet5803/docker-demo:latest"
+        sh "docker run -itd -p 80:80 gurpreet5803/docker-demo:${env.BUILD_ID}"
     }
 
 }
