@@ -13,7 +13,7 @@ node {
         app = docker.build("gurpreet5803/docker-demo:${env.BUILD_ID}")
     }
 
-    stage('Publish image') {
+    stage('Run image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
