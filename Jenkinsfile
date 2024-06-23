@@ -32,7 +32,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         agent { label 'prod' }
-        sh "docker run -itd -p 3000:80 gurpreet5803/docker-demo:latest"
+        sh "docker run -itd -p 5000:80 gurpreet5803/docker-demo:latest"
     }
 
 }
