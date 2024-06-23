@@ -1,5 +1,8 @@
 node {
     def app
+    agent {
+       label prod
+    }
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -22,7 +25,6 @@ node {
             app.push("latest")
         }
     }
-    
 
     stage('Publish image') {
         /* Finally, we'll push the image with two tags:
