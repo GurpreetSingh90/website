@@ -22,6 +22,7 @@ node {
             app.push("latest")
         }
     }
+    
 
     stage('Publish image') {
         /* Finally, we'll push the image with two tags:
